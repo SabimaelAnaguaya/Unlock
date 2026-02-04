@@ -1,0 +1,65 @@
+{
+  "nombre": "La Fórmula",
+  "cartas": [
+    {
+      "tipo": "carta",
+      "numero": 1001,
+      "frente": "01a.webp",
+      "dorso": "01b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 25,
+      "frente": "02a.webp",
+      "dorso": "02b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 48,
+      "frente": "03a.webp",
+      "dorso": "03b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 21,
+      "frente": "04a.webp",
+      "dorso": "04b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 35,
+      "frente": "05a.webp",
+      "dorso": "05b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 69,
+      "frente": "06a.webp",
+      "dorso": "06b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 16,
+      "frente": "07a.webp",
+      "dorso": "07b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 11,
+      "frente": "08a.webp",
+      "dorso": "08b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 46,
+      "frente": "09a.webp",
+      "dorso": "09b.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 42,
+      "frente": "10a.webp",
+      "dorso": "10b.webp"
+    }
+  ]
+}
