@@ -28,7 +28,7 @@ class TableroUnlock extends HTMLElement {
         :host {
           display: block;
           width: 100%;
-          height: 100vh;
+          height: 100dvh;
           background: #2b2b2b;
           position: relative;
           overflow: hidden;

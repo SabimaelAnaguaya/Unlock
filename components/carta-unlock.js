@@ -38,7 +38,7 @@ class CartaUnlock extends HTMLElement {
           height: 220px;
           cursor: grab;
           user-select: none;
-          
+          touch-action: none;
           transition: transform 0.2s ease;
         }
 
@@ -188,9 +188,10 @@ class CartaUnlock extends HTMLElement {
     // -------------------------
     // Arrastre
     // -------------------------
-    this.addEventListener("mousedown", (e) => {
-      // Evitar arrastre si se clickea un botón
+    this.addEventListener("pointerdown", (e) => {
       if (e.target.classList.contains("btn")) return;
+
+      this.setPointerCapture(e.pointerId);
 
       this.dragging = true;
       this.moved = false;
@@ -200,35 +201,25 @@ class CartaUnlock extends HTMLElement {
       this.offset.x = e.clientX - rect.left;
       this.offset.y = e.clientY - rect.top;
 
-      this.startPos.x = e.clientX;
-      this.startPos.y = e.clientY;
-
       const move = (ev) => {
         if (!this.dragging) return;
-
-        const dx = ev.clientX - this.startPos.x;
-        const dy = ev.clientY - this.startPos.y;
-
-        if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
-          this.moved = true;
-        }
-
-        if (this.moved) {
-          this.style.left = ev.clientX - this.offset.x + "px";
-          this.style.top = ev.clientY - this.offset.y + "px";
-        }
+      
+        this.style.left = ev.clientX - this.offset.x + "px";
+        this.style.top = ev.clientY - this.offset.y + "px";
       };
-
+    
       const up = () => {
         this.dragging = false;
         this.style.cursor = "grab";
-
-        window.removeEventListener("mousemove", move);
-        window.removeEventListener("mouseup", up);
+      
+        this.removeEventListener("pointermove", move);
+        this.removeEventListener("pointerup", up);
+        this.removeEventListener("pointercancel", up);
       };
-
-      window.addEventListener("mousemove", move);
-      window.addEventListener("mouseup", up);
+    
+      this.addEventListener("pointermove", move);
+      this.addEventListener("pointerup", up);
+      this.addEventListener("pointercancel", up);
     });
 
     
@@ -253,46 +244,36 @@ class CartaUnlock extends HTMLElement {
     // Rotación 
     // -------------------------
     
-   this.rotateHandle = this.shadowRoot.querySelector(".rotate-handle");
+   this.rotateHandle.addEventListener("pointerdown", (e) => {
+  e.stopPropagation();
+  this.setPointerCapture(e.pointerId);
+  this.isRotating = true;
 
+  const rect = this.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
 
+  const startAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * 180 / Math.PI;
+  const initialRotation = this.currentAngle;
 
-    this.rotateHandle.addEventListener("mousedown", (e) => {
-      e.stopPropagation();
-      this.isRotating = true;
+  const move = (ev) => {
+    const angle = Math.atan2(ev.clientY - centerY, ev.clientX - centerX) * 180 / Math.PI;
+    const delta = angle - startAngle;
+    this.targetAngle = initialRotation + delta;
+  };
 
-      const rect = this.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+  const up = () => {
+    this.isRotating = false;
+    this.removeEventListener("pointermove", move);
+    this.removeEventListener("pointerup", up);
+    this.removeEventListener("pointercancel", up);
+  };
 
-      const startAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * 180 / Math.PI;
-      const initialRotation = this.currentAngle;
+  this.addEventListener("pointermove", move);
+  this.addEventListener("pointerup", up);
+  this.addEventListener("pointercancel", up);
+});
 
-      const move = (ev) => {
-        const angle = Math.atan2(ev.clientY - centerY, ev.clientX - centerX) * 180 / Math.PI;
-        const delta = angle - startAngle;
-      
-        this.targetAngle = initialRotation + delta;
-      };
-    
-      const up = () => {
-          this.isRotating = false;
-          window.removeEventListener("mousemove", move);
-          window.removeEventListener("mouseup", up);
-        };
-      
-        window.addEventListener("mousemove", move);
-        window.addEventListener("mouseup", up);
-    });
-
-    const animateRotation = () => {
-      this.currentAngle += (this.targetAngle - this.currentAngle) * 0.15;
-      this.style.transform = `rotate(${this.currentAngle}deg)`;
-      
-      requestAnimationFrame(animateRotation);
-    };
-
-    animateRotation();
 
 
 
