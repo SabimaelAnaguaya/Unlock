@@ -238,13 +238,16 @@ class CartaUnlock extends HTMLElement {
         tablero.descartarCarta(this);
       }
     });
-    
-    
-    // -------------------------
-    // Rotación 
-    // -------------------------
-    
-   this.rotateHandle.addEventListener("pointerdown", (e) => {
+    // Obtener el handle
+this.rotateHandle = this.shadowRoot.querySelector(".rotate-handle");
+
+// Variables internas
+this.currentAngle = 0;
+this.targetAngle = 0;
+this.isRotating = false;
+
+// Rotación con pointer events
+this.rotateHandle.addEventListener("pointerdown", (e) => {
   e.stopPropagation();
   this.setPointerCapture(e.pointerId);
   this.isRotating = true;
@@ -274,7 +277,14 @@ class CartaUnlock extends HTMLElement {
   this.addEventListener("pointercancel", up);
 });
 
+// Animación suave SIEMPRE
+const animateRotation = () => {
+  this.currentAngle += (this.targetAngle - this.currentAngle) * 0.25;
+  this.style.transform = `rotate(${this.currentAngle}deg)`;
+  requestAnimationFrame(animateRotation);
+};
 
+animateRotation();
 
 
   }
