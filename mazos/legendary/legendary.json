@@ -10,8 +10,8 @@
     {
       "tipo": "lupe",
       "numero": "Lupa",
-      "frente": "LupaA.webp",
-      "dorso": "LupaB.webp"
+      "frente": "lupeA.webp",
+      "dorso": "lupeB.webp"
     },
     {
       "tipo": "carta",
