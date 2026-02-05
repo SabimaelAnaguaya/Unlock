@@ -42,10 +42,11 @@ class TableroUnlock extends HTMLElement {
 
         #bandeja {
           height: 120px;
-          width: 100%;
+          width: 100dvw;
           background: #1e1e1e;
           border-top: 2px solid #444;
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           overflow-x: auto;
           padding: 8px;

@@ -11,10 +11,9 @@ class CartaMini extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
-          display: inline-flex;
+          height: 40px;
+          display: flex;
           border: 1px solid white;
-          flex-direction: column;
-          flex-wrap: wrap;
           align-items: center;
           cursor: grab;
           user-select: none;
