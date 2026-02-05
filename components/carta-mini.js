@@ -12,25 +12,23 @@ class CartaMini extends HTMLElement {
       <style>
         :host {
           display: inline-flex;
+          border: 1px solid white;
           flex-direction: column;
+          flex-wrap: wrap;
           align-items: center;
           cursor: grab;
-          margin: -10px;
           user-select: none;
+          padding: 0 8px;
+          border-radius: 5px;
         }
-
-        img {
-          width: 60px;
-          height: 90px;
-          border-radius: 4px;
-          -webkit-user-drag: none;
-          user-drag: none;
+          
+          p{     
+          color: white;
         }
-
     
       </style>
 
-      <img src="${dorso}">
+      <p>${numero}</p>
     `;
   }
 }

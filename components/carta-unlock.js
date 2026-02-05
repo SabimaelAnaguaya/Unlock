@@ -34,12 +34,13 @@ class CartaUnlock extends HTMLElement {
         :host {
           position: absolute;
           display: inline-block;
-          width: 150px;
-          height: 220px;
+          width: 127px; 
+          aspect-ratio: 6 / 11;
           cursor: grab;
           user-select: none;
           touch-action: none;
           transition: transform 0.2s ease;
+
         }
 
         .carta {
@@ -101,8 +102,7 @@ class CartaUnlock extends HTMLElement {
 
         /* Zoom */
         :host(.zoomed) {
-          width: 300px;
-          height: 440px;
+          width: 227px; 
           z-index: 999;
         }
 
