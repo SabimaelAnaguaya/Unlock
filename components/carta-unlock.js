@@ -249,8 +249,13 @@ this.isRotating = false;
 // Rotación con pointer events
 this.rotateHandle.addEventListener("pointerdown", (e) => {
   e.stopPropagation();
+  
+  const tablero = document.querySelector("tablero-unlock"); 
+  if (tablero) { tablero.traerAlFrente(this); }
+  
   this.setPointerCapture(e.pointerId);
   this.isRotating = true;
+
 
   const rect = this.getBoundingClientRect();
   const centerX = rect.left + rect.width / 2;
@@ -285,6 +290,18 @@ const animateRotation = () => {
 };
 
 animateRotation();
+
+this.addEventListener("pointerdown", (e) => {
+  if (e.target.classList.contains("btn")) return;
+
+  const tablero = document.querySelector("tablero-unlock");
+  if (tablero) {
+    tablero.traerAlFrente(this);
+  }
+
+  // ... resto del arrastre
+});
+
 
 
   }

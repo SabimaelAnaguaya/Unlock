@@ -8,7 +8,8 @@ class TableroUnlock extends HTMLElement {
     this.descartadas = []; // ← AQUÍ // 
     this.listaCartas = []; // (opcional, útil para recuperar) //
 
-    
+    this.zCounter = 1;
+
   }
 
   connectedCallback() {
@@ -32,6 +33,8 @@ class TableroUnlock extends HTMLElement {
           background: #2b2b2b;
           position: relative;
           overflow: hidden;
+          touch-action: none; 
+          overscroll-behavior: none;
         }
 
         #areaTablero {
@@ -210,6 +213,10 @@ actualizarIconoDescarte() {
   this.iconoDescarte.textContent = `🗑️ ${this.descartadas.length}`;
 }
 
+traerAlFrente(carta) {
+  this.zCounter++;
+  carta.style.zIndex = this.zCounter;
+}
 
 }
 
