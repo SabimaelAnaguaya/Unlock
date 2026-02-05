@@ -8,6 +8,12 @@
       "dorso": "inicioB.webp"
     },
     {
+      "tipo": "lupe",
+      "numero": "Lupa",
+      "frente": "LupaA.webp",
+      "dorso": "LupaB.webp"
+    },
+    {
       "tipo": "carta",
       "numero": 2,
       "frente": "2A.webp",
