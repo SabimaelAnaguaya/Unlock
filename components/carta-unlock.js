@@ -20,9 +20,10 @@ class CartaUnlock extends HTMLElement {
 
   connectedCallback() {
     this.numero = this.getAttribute("numero") || "";
-    this.frente = this.getAttribute("dorso") || "";
-    this.dorso = this.getAttribute("frente") || "";
+    this.frente = this.getAttribute("frente") || "";
+    this.dorso = this.getAttribute("dorso") || "";
     this.rotable = this.hasAttribute("rotar");
+    this.tieneDorsoImagen = this.dorso && this.dorso.trim() !== "";
 
     this.render();
     this.setupEvents();
@@ -34,7 +35,7 @@ class CartaUnlock extends HTMLElement {
         :host {
           position: absolute;
           display: inline-block;
-          width: 127px; 
+          width: 100px; 
           aspect-ratio: 6 / 11;
           cursor: grab;
           user-select: none;
@@ -54,6 +55,7 @@ class CartaUnlock extends HTMLElement {
         .carta.volteada {
           transform: rotateY(180deg);
         }
+        
 
         img {
           width: 100%;
@@ -143,11 +145,32 @@ class CartaUnlock extends HTMLElement {
             opacity: 1;
           }
 
+          .dorso-generado {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          backface-visibility: hidden;
+          border-radius: 6px;
+          background: #2c3e50; /* color por defecto */
+          color: white;
+          font-size: 48px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: rotateY(180deg);
+          user-select: none;
+        }
+
       </style>
 
       <div class="carta">
         <img class="frente" src="${this.frente}">
-        <img class="dorso" src="${this.dorso}">
+        ${this.tieneDorsoImagen
+        ? `<img class="dorso" src="${this.dorso}">`
+        : `<div class="dorso-generado">${this.numero}</div>`
+}
+
       </div>
 
       <div class="rotate-handle">⟳</div>
@@ -168,6 +191,18 @@ class CartaUnlock extends HTMLElement {
   }
 
   setupEvents() {
+
+    const imgDorso = this.shadowRoot.querySelector(".dorso");
+
+    if (imgDorso) {
+      imgDorso.addEventListener("error", () => {
+        this.tieneDorsoImagen = false;
+        this.render(); // volver a dibujar usando dorso-generado
+        this.setupEvents(); // volver a conectar eventos
+      });
+    }
+
+
     // -------------------------
     // Botón de Zoom
     // -------------------------

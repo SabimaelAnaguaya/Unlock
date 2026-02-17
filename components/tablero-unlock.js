@@ -13,6 +13,7 @@ class TableroUnlock extends HTMLElement {
   }
 
   connectedCallback() {
+    this.fondo = this.getAttribute("fondo") || "";
     this.render();
     this.inicializar();
 
@@ -30,18 +31,12 @@ class TableroUnlock extends HTMLElement {
           display: block;
           width: 100%;
           height: 100dvh;
-          background: #2b2b2b;
           position: relative;
           overflow: hidden;
           touch-action: none; 
           overscroll-behavior: none;
         }
 
-        #areaTablero {
-          width: 100%;
-          height: calc(100% - 120px);
-          position: relative;
-        }
 
         #bandeja {
           height: 120px;
@@ -93,6 +88,18 @@ class TableroUnlock extends HTMLElement {
         overflow-y: auto;
         z-index: 1000;
       }
+        #areaTablero {
+          width: 100%;
+          height: calc(100% - 120px);
+          position: relative;
+          overflow: hidden;
+          background-color: #708c6e;
+
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
       </style>
 
       <div id="areaTablero"></div>
@@ -101,11 +108,29 @@ class TableroUnlock extends HTMLElement {
       <div id="iconoDescarte">🗑️ 0</div>
       <div id="panelDescarte"></div>
     `;
-
-    this.areaTablero = this.shadowRoot.querySelector("#areaTablero");
-    this.bandeja = this.shadowRoot.querySelector("#bandeja");
-    this.iconoDescarte = this.shadowRoot.querySelector("#iconoDescarte"); 
-    this.panelDescarte = this.shadowRoot.querySelector("#panelDescarte");
+    
+    
+        this.areaTablero = this.shadowRoot.querySelector("#areaTablero");
+        this.bandeja = this.shadowRoot.querySelector("#bandeja");
+        this.iconoDescarte = this.shadowRoot.querySelector("#iconoDescarte"); 
+        this.panelDescarte = this.shadowRoot.querySelector("#panelDescarte");
+    
+    const area = this.areaTablero;
+    // Si hay imagen de fondo, intentar cargarla 
+    if (this.fondo) { 
+      const img = new Image();
+       img.src = this.fondo; 
+       
+       img.onload = () => { 
+        area.style.backgroundImage = `url(${this.fondo})`;
+       }; 
+       img.onerror = () => { 
+        area.style.backgroundImage = "none"; // fallback al color genérico 
+       }; 
+      } else { 
+        // No hay imagen → usar color genérico 
+        area.style.backgroundImage = "none"; 
+      }
   }
 
   async inicializar() {
@@ -133,20 +158,19 @@ class TableroUnlock extends HTMLElement {
 
     mini.usada = false;
 
-    mini.addEventListener("mousedown", (e) => {
-      if (mini.usada) return; // evitar duplicados
+    mini.addEventListener("pointerdown", (e) => {
+  mini.usada = true;
+  mini.remove();
 
-      mini.usada = true;
-      mini.remove(); // quitar de la bandeja
+  this.crearCartaGrande(carta, base, e, true); // ← true = viene de bandeja
+});
 
-      this.crearCartaGrande(carta, base, e);
-    });
 
     this.bandeja.appendChild(mini);
   });
 }
 
-crearCartaGrande(carta, base, e) {
+crearCartaGrande(carta, base, e, desdeBandeja = false) {
   const grande = document.createElement("carta-unlock");
 
   grande.setAttribute("numero", carta.numero);
@@ -157,12 +181,28 @@ crearCartaGrande(carta, base, e) {
     grande.setAttribute("rotar", "");
   }
 
-  // Posición inicial donde el usuario hizo clic
-  grande.style.left = e.clientX - 75 + "px";
-  grande.style.top = e.clientY - 110 + "px";
+  if (desdeBandeja) {
+    // 📌 CENTRAR EN PANTALLA
+    const cartaW = 150;
+    const cartaH = 220;
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    grande.style.left = (centerX - cartaW / 2) + "px";
+    grande.style.top = (centerY - cartaH / 2) + "px";
+  } else {
+    // 📌 Posición normal (cuando arrastras desde el tablero)
+    grande.style.left = e.clientX - 75 + "px";
+    grande.style.top = e.clientY - 110 + "px";
+  }
 
   this.areaTablero.appendChild(grande);
+
+  // Traer al frente
+  this.traerAlFrente(grande);
 }
+
 
 descartarCarta(cartaGrande) {
   const numero = cartaGrande.getAttribute("numero");
