@@ -1,0 +1,365 @@
+{
+  "nombre": "La Fórmula",
+  "cartas": [
+    {
+      "tipo": "carta",
+      "numero": "inicio",
+      "frente": "15A.webp",
+      "dorso": "inicioA.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "5",
+      "frente": "5A.webp",
+      "dorso": "5B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 6,
+      "frente": "6A.webp",
+      "dorso": "6B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 8,
+      "frente": "8A.webp",
+      "dorso": "8B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 10,
+      "frente": "10A.webp",
+      "dorso": "10B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 12,
+      "frente": "12A.webp",
+      "dorso": "12B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 13,
+      "frente": "13A.webp",
+      "dorso": "13B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 16,
+      "frente": "16A.webp",
+      "dorso": "16B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 18,
+      "frente": "18A.webp",
+      "dorso": "18B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 19,
+      "frente": "19A.webp",
+      "dorso": "19B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 20,
+      "frente": "20A.webp",
+      "dorso": "20B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 24,
+      "frente": "24A.webp",
+      "dorso": "24B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 26,
+      "frente": "26A.webp",
+      "dorso": "26B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 28,
+      "frente": "28A.webp",
+      "dorso": "28B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "🪨",
+      "frente": "29A.webp",
+      "dorso": "29B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 30,
+      "frente": "30A.webp",
+      "dorso": "30B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 32,
+      "frente": "32A.webp",
+      "dorso": "32B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 35,
+      "frente": "35A.webp",
+      "dorso": "35B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 36,
+      "frente": "36A.webp",
+      "dorso": "36B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 37,
+      "frente": "37A.webp",
+      "dorso": "37B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 39,
+      "frente": "39A.webp",
+      "dorso": "39B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "📄",
+      "frente": "40A.webp",
+      "dorso": "40B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 41,
+      "frente": "41A.webp",
+      "dorso": "41B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 47,
+      "frente": "47A.webp",
+      "dorso": "47B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 48,
+      "frente": "48A.webp",
+      "dorso": "48B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 49,
+      "frente": "49A.webp",
+      "dorso": "49B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 52,
+      "frente": "52A.webp",
+      "dorso": "52B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 54,
+      "frente": "54A.webp",
+      "dorso": "54B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 55,
+      "frente": "55A.webp",
+      "dorso": "55B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 57,
+      "frente": "57A.webp",
+      "dorso": "57B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 58,
+      "frente": "58A.webp",
+      "dorso": "58B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 59,
+      "frente": "59A.webp",
+      "dorso": "59B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 60,
+      "frente": "60A.webp",
+      "dorso": "60B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 63,
+      "frente": "63A.webp",
+      "dorso": "63B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 65,
+      "frente": "nein.webp",
+      "dorso": "65B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 66,
+      "frente": "66A.webp",
+      "dorso": "66B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 67,
+      "frente": "67A.webp",
+      "dorso": "67B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 70,
+      "frente": "70A.webp",
+      "dorso": "70B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 71,
+      "frente": "71A.webp",
+      "dorso": "71B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 75,
+      "frente": "75A.webp",
+      "dorso": "75B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 76,
+      "frente": "76A.webp",
+      "dorso": "76B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "✂️",
+      "frente": "78A.webp",
+      "dorso": "78B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 79,
+      "frente": "79A.webp",
+      "dorso": "79B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 80,
+      "frente": "80A.webp",
+      "dorso": "80B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 82,
+      "frente": "82A.webp",
+      "dorso": "82B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 83,
+      "frente": "83A.webp",
+      "dorso": "83B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 85,
+      "frente": "nein.webp",
+      "dorso": "85B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 87,
+      "frente": "87A.webp",
+      "dorso": "87B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 88,
+      "frente": "nein.webp",
+      "dorso": "88B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 90,
+      "frente": "90A.webp",
+      "dorso": "90B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 92,
+      "frente": "nein.webp",
+      "dorso": "92B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 93,
+      "frente": "93A.webp",
+      "dorso": "93B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": 95,
+      "frente": "95A.webp",
+      "dorso": "95B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "97",
+      "frente": "nein.webp",
+      "dorso": "97B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "98",
+      "frente": "98A.webp",
+      "dorso": "98B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "99",
+      "frente": "nein.webp",
+      "dorso": "99B.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "H",
+      "frente": "HA.webp",
+      "dorso": "HB.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "K",
+      "frente": "KA.webp",
+      "dorso": "KB.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "42",
+      "frente": "nein.webp",
+      "dorso": "LB.webp"
+    },
+    {
+      "tipo": "carta",
+      "numero": "61",
+      "frente": "nein.webp",
+      "dorso": "PB.webp"
+    }
+  ]
+}
