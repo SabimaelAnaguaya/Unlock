@@ -94,8 +94,7 @@ class TableroUnlock extends HTMLElement {
           position: relative;
           overflow: hidden;
           background-color: #708c6e;
-
-          background-size: cover;
+          background-size: contain;
           background-position: center;
           background-repeat: no-repeat;
         }
